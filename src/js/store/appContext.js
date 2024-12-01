@@ -31,7 +31,34 @@ const injectContext = PassedComponent => {
 			 * state.actions.loadSomeData(); <---- calling this function from the flux.js actions
 			 *
 			 **/
+			createUser();
+			state.actions.loadSomeData();
 		}, []);
+
+		//creation of the user
+		const createUser = async () => {
+			//Creacion del usuario
+			
+			const response = await fetch('https://playground.4geeks.com/contact/agendas/Miguel-U', {
+				method: "POST",
+				headers: {
+				  "Content-Type": "application/json"
+				}
+			  });
+			if (response.ok) {
+				const data = await response.json();
+				setUserName(data.name)
+			} else {
+				console.log('error: ', response.status, response.statusText);
+				/* Handle the error returned by the HTTP request */
+				return {error: {status: response.status, statusText: response.statusText}};
+			};
+		}
+
+		
+
+
+
 
 		// The initial value for the context is not null anymore, but the current state of this component,
 		// the context will now have a getStore, getActions and setStore functions available, because they were declared
