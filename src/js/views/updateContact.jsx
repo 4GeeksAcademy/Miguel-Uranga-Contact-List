@@ -14,7 +14,7 @@ export const UpdateContact = props => {
     
     const updateContactInfo = () => {
         actions.UpdateContact(contactInfo, params.id)
-        alert("Successfully updated "+ contactToChange ? contactToChange.name : contactInfo.name + "!")
+        alert("Successfully updated "+ (contactInfo.name ? contactInfo.name : contactToChange.name  ) + "!")
         navigate("/contacts")
     }
     return (<>
