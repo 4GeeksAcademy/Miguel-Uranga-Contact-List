@@ -8,9 +8,15 @@ import {Context} from '../store/appContext.js'
 export const UpdateContact = props => {
     const params = useParams();
     const [contactInfo, setContactInfo] = useState({})
+    const navigate = useNavigate();
     const { store, actions } = useContext(Context);
     let contactToChange = {...store.contacts.find(x => x.id == params.id)}
-
+    
+    const updateContactInfo = () => {
+        actions.UpdateContact(contactInfo, params.id)
+        alert("Successfully updated "+ contactInfo.name + "!")
+        navigate("/contacts")
+    }
     return (<>
         <div className='container-fluid w-75'>
                 <h1 className="mb-5">Changing {contactToChange.name}'s information!</h1>
@@ -63,7 +69,7 @@ export const UpdateContact = props => {
                 </div>
 
                 <button className='w-100 bg-primary' style={{border: "none", height: "40px","border-radius": "5px"}}
-                    onClick={() => actions.UpdateContact(contactInfo, params.id)}
+                    onClick={() => updateContactInfo()}
                 ><div className='text-light fw-bold'>save</div></button>
                 <Link to="/contacts">Or get back to contacts</Link>
         </div>
