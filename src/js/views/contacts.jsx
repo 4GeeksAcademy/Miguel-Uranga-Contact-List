@@ -42,7 +42,7 @@ export const Contacts = () => {
 							</div>
 
 							<div className="d-flex mt-3">
-								<div className="fs-5 me-5" onClick={() => navigate("/updateContact")}><i className="fa-solid fa-user-pen"></i></div>
+								<div className="fs-5 me-5" onClick={() => navigate("/updateContact/" + (item.id))}><i className="fa-solid fa-user-pen"></i></div>
 								<div className="fs-5 me-5"><i className="fa-solid fa-trash-can"></i></div>
 							</div>
 						</li>

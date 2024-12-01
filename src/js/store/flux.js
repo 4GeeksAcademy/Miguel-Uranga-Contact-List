@@ -19,9 +19,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const response = await fetch('https://playground.4geeks.com/contact/agendas/Miguel-U');
 					if (response.ok) {
 						const data = await response.json();
-						console.log(data)
+						//console.log(data)
 						setStore({...getStore, usuario: data.slug, contacts: data.contacts});
-						console.log(getStore())
+						//console.log(getStore())
+						return data.contacts
 					} else {
 						console.log('error: ', response.status, response.statusText);
 						/* Handle the error returned by the HTTP request */
@@ -33,6 +34,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				const response = await fetch('https://playground.4geeks.com/contact/agendas/Miguel-U/contacts', {
 					method: "POST",
+					body: JSON.stringify(contactInfo),
+					headers: {
+					"Content-Type": "application/json"
+					}
+				});
+					if (response.ok) {
+						const data = await response.json();
+						console.log(data)
+						//setStore({...getStore, usuario: data.slug, contacts: data.contacts});
+						console.log(getStore())
+					} else {
+						console.log('error: ', response.status, response.statusText);
+						/* Handle the error returned by the HTTP request */
+					};
+			},
+			UpdateContact: async (contactInfo, id) => {
+				const response = await fetch('https://playground.4geeks.com/contact/agendas/Miguel-U/contacts/'+id, {
+					method: "PUT",
 					body: JSON.stringify(contactInfo),
 					headers: {
 					"Content-Type": "application/json"

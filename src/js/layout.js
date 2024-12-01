@@ -5,8 +5,11 @@ import { ContactNavbar } from "./component/contactNavBar.jsx";
 
 import { Home } from "./views/home.jsx";
 import { Contacts } from "./views/contacts.jsx";
-import injectContext from "./store/appContext";
 import { AddContact } from "./views/AddContact.jsx";
+import { UpdateContact } from "./views/updateContact.jsx";
+
+import injectContext from "./store/appContext";
+
 
 
 //create your first component
@@ -23,6 +26,7 @@ const Layout = () => {
 					<Route path="/" element={<Home />} />
 					<Route path="/contacts" element={<Contacts />} />
 					<Route path="/addContact" element={<AddContact />} />
+					<Route path="/updateContact/:id" element={<UpdateContact/>} />
 					<Route path="*" element={<h1>Not found!</h1>} />
 				</Routes>
 			</BrowserRouter>
