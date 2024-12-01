@@ -46,7 +46,7 @@ export const UpdateContact = props => {
 
                 <label for="phone" className="form-label fw-bold">Phone</label>
                 <div className="input-group mb-3">
-                    <input type="text" className="form-control" placeholder={contactToChange.email} aria-label="Username" id="phone"
+                    <input type="text" className="form-control" placeholder={contactToChange.phone} aria-label="Username" id="phone"
                         onChange={
                             e=> {
                             contactInfo.phone = e.target.value
