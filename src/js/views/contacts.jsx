@@ -11,7 +11,7 @@ export const Contacts = () => {
 	let contactID = 0;
 	let contactName = "";
 
-	useEffect(()=> {actions.loadSomeData()}, []);
+	useEffect(()=> {actions.loadSomeData()}, [store]);
 
 	
 	const deletionOfContact = (id) => {
@@ -77,7 +77,7 @@ export const Contacts = () => {
 							</div>
 						</li>
 					);
-				}) : null
+				}) : <p>No contacts right now!</p>
 			}
 				</ul>
 			</div>
