@@ -1,5 +1,5 @@
 import React, { useContext} from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {Context} from '../store/appContext.js'
 
 
@@ -10,9 +10,13 @@ export const AddContact = () => {
         email: "",
         address: ""
     }
-
+    const navigate = useNavigate();
     const { store, actions } = useContext(Context);
-
+    const contactAddition = (contactInfo) =>{
+        actions.AddContact(contactInfo)
+        alert("Successfully added "+ contactInfo.name + "!")
+        navigate("/contacts")
+    }
 
     return (
         <div className='container-fluid w-75'>
@@ -65,7 +69,7 @@ export const AddContact = () => {
             </div>
 
             <button className='w-100 bg-primary' style={{border: "none", height: "40px","border-radius": "5px"}}
-                onClick={() => actions.AddContact(contactInfo)}
+                onClick={() => contactAddition(contactInfo)}
             ><div className='text-light fw-bold'>save</div></button>
             <Link to="/contacts">Or get back to contacts</Link>
 

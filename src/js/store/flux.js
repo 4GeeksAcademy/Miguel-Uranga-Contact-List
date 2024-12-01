@@ -42,7 +42,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					if (response.ok) {
 						const data = await response.json();
 						console.log(data)
-						//setStore({...getStore, usuario: data.slug, contacts: data.contacts});
+						setStore({...getStore, contacts: data.contacts});
 						console.log(getStore())
 					} else {
 						console.log('error: ', response.status, response.statusText);
@@ -66,6 +66,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.log('error: ', response.status, response.statusText);
 						/* Handle the error returned by the HTTP request */
 					};
+			},
+			DeleteContact: async (id) => {
+				//Borrar el usuario
+				const response = await fetch('https://playground.4geeks.com/contact/agendas/Miguel-U/contacts/'+id, {
+					method: "DELETE"
+					});
+				if (response.ok) {
+					const data = await response.json();
+					alert("User deleted!")
+					console.log(data)
+				} else {
+					alert("This user does not exist")
+					console.log('error: ', response.status, response.statusText);
+					/* Handle the error returned by the HTTP request */
+					return {error: {status: response.status, statusText: response.statusText}};
+				};
 			}
 		}
 	};

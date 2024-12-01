@@ -9,7 +9,7 @@ export const ContactNavbar = () => {
 			</Link>
 			<div className="ml-auto">
                 <Link to = "/contacts" className="btn btn-success">
-                    If you see this green button, bootstrap is working
+                    Go to contacts!
                 </Link>
 			</div>
 		</nav>
