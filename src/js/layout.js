@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import { ContactNavbar } from "./component/contactNavBar.jsx";
 
-import { Home } from "./views/home.jsx";
 import { Contacts } from "./views/contacts.jsx";
 import { AddContact } from "./views/AddContact.jsx";
 import { UpdateContact } from "./views/updateContact.jsx";
@@ -23,7 +22,7 @@ const Layout = () => {
 			<BrowserRouter basename={basename}>
 				<ContactNavbar />
 				<Routes>
-					<Route path="/" element={<Home />} />
+					<Route path="/" element={<Contacts />} />
 					<Route path="/contacts" element={<Contacts />} />
 					<Route path="/addContact" element={<AddContact />} />
 					<Route path="/updateContact/:id" element={<UpdateContact/>} />

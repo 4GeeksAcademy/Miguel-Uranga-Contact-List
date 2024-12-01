@@ -73,10 +73,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					method: "DELETE"
 					});
 				if (response.ok) {
-					const data = await response.json();
 					alert("User deleted!")
-					console.log(data)
-					setStore({...getStore, contacts: data.contacts});
 				} else {
 					alert("This user does not exist")
 					console.log('error: ', response.status, response.statusText);

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect} from "react";
+import React, { useContext, useEffect, useState} from "react";
 import "../../styles/home.css";
 
 import { useNavigate } from "react-router-dom";
@@ -7,6 +7,7 @@ import {Context} from '../store/appContext.js'
 export const Contacts = () => {
 	const navigate = useNavigate();
 	const { store, actions } = useContext(Context);
+	const [state, setState] = useState(null)
 	let contactID = 0;
 	let contactName = "";
 
@@ -14,9 +15,9 @@ export const Contacts = () => {
 
 	
 	const deletionOfContact = (id) => {
-		actions.DeleteContact(id) 
-		actions.loadSomeData()
-		this.setState(this.state)
+		actions.DeleteContact(id);
+		actions.loadSomeData();
+		setState("a");
 	}
 
 	const deletionCheck = (id, contact) => {
