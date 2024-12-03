@@ -61,7 +61,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						const data = await response.json();
 						console.log(data)
 						//setStore({...getStore, usuario: data.slug, contacts: data.contacts});
-						console.log(getStore())
+						getActions().loadSomeData()
 					} else {
 						console.log('error: ', response.status, response.statusText);
 						/* Handle the error returned by the HTTP request */
