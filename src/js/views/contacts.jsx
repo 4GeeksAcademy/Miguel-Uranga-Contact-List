@@ -11,19 +11,19 @@ export const Contacts = () => {
 	let contactID = 0;
 	let contactName = "";
 
-	useEffect(()=> {actions.loadSomeData()}, [store]);
+	//useEffect(()=> {actions.loadSomeData()}, []);
 
 	
 	const deletionOfContact = (id) => {
 		actions.DeleteContact(id);
-		actions.loadSomeData();
-		setState("a");
+		//actions.loadSomeData();
 	}
 
 	const deletionCheck = (id, contact) => {
 		contactID = id;
 		contactName = contact
 	}
+	
 	return(
 		<>
 			

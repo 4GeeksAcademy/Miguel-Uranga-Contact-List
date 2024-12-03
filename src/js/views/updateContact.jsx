@@ -17,6 +17,7 @@ export const UpdateContact = props => {
         alert("Successfully updated "+ (contactInfo.name ? contactInfo.name : contactToChange.name  ) + "!")
         navigate("/contacts")
     }
+
     return (<>
         <div className='container-fluid w-75'>
                 <h1 className="mb-5">Changing {contactToChange.name}'s information!</h1>
@@ -24,10 +25,10 @@ export const UpdateContact = props => {
                 <div className="input-group mb-3">
                     <input type="text" className="form-control" placeholder={contactToChange.name} aria-label="Username" id="full_Name" 
                         onChange={
-                        e=> {
-                            contactInfo.name = e.target.value
-                            //console.log(contactInfo.name)
-                        }
+                            e=> {
+                                contactInfo.name = e.target.value
+                                //console.log(contactInfo.name)
+                            }
                         }
                     />
                 </div>
