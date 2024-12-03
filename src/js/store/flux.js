@@ -93,7 +93,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			  });
 			if (response.ok) {
 				const data = await response.json();
-				setUserName(data.name)
+				//setUserName(data.name)
 			} else {
 				console.log('error: ', response.status, response.statusText);
 				/* Handle the error returned by the HTTP request */
