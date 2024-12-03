@@ -76,7 +76,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					getActions().loadSomeData();
 					alert("User deleted!")
 				} else {
-					alert("This user does not exist")
+					alert("This contact does not exist")
 					console.log('error: ', response.status, response.statusText);
 					/* Handle the error returned by the HTTP request */
 					return {error: {status: response.status, statusText: response.statusText}};
